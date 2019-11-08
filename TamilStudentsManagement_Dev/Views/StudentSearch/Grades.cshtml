@@ -1,0 +1,31 @@
+﻿@model List<MastersGradeModel>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Grades</title>
+</head>
+<body>
+    <h1>Grades</h1>
+
+    <table>
+        <tr>
+            <th>Grade ID</th>
+            <th>Grade Name</th>
+
+        </tr>
+        @foreach (var grade in Model)
+        {
+            <tr>
+                <td>@grade.GradeID</td>
+                <td>@grade.GradeName</td>
+
+            </tr>
+        }
+    </table>
+</body>
+</html>

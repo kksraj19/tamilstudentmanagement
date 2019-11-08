@@ -1,0 +1,55 @@
+﻿@model List<StudentModel>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Students</title>
+</head>
+<body>
+    <h1>Students</h1>
+    @using (Html.BeginForm("AddStudentAttendance", "StudentAttendance", FormMethod.Post))
+    { 
+
+        <table border="1" id="tblStudentAttendance">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Attendance</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@Html.HiddenFor(model => model[i].Studentid)</td>
+                        <td>@Html.EditorFor(model => model[i].FirstName)</td>
+                        <td>@Html.EditorFor(model => model[i].LastName)</td>
+                        <td>@Html.EditorFor(model => model[i].DateOfBirth)</td>
+                        <td>@Html.EditorFor(model => model[i].Gender)</td>
+                        <td align="center"><input type="checkbox" /></td>
+                        <td align="center"><textarea name="textarea" style="width:250px;height:150px;"></textarea></td>
+                    </tr>
+                }
+            </tbody>
+
+        </table> 
+        <input type="submit" value="Save All" />
+    }
+
+
+
+
+
+</body>
+</html>
